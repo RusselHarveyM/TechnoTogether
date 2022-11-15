@@ -1,6 +1,6 @@
+import "../landing.css";
 import "./Banner.css";
 import Navigation from "./navigation/Navigation";
-import bootstrap from "bootstrap";
 
 function Banner() {
   return (

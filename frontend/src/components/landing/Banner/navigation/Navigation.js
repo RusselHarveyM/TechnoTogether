@@ -1,5 +1,6 @@
 import logo from "../../../../images/logo.png";
 import "./Navigation.css";
+import "../../landing.css";
 
 function Navigation() {
   return (
