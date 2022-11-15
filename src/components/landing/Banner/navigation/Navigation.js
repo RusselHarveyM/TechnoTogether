@@ -10,7 +10,7 @@ function Navigation() {
         <a href="#">Design a Study Universe</a>
         <a href="#">Forums</a>
         <a href="#">About</a>
-        <a href="#">Register Now</a>
+        <a href="#">Login</a>
       </div>
     </nav>
   );

@@ -1,10 +1,20 @@
+*{
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
 .wrapper{
     display: flex;
+    flex-direction: column;
+    padding: 0.2em 1.5em 0 1.5em
+}
+
+.wrapper *{
+    z-index: 2;
 }
 .wrapper:before{
     content: "";
     position:absolute;
-    background: url("/src/images/welcome_page_background.png") no-repeat center;
+    background: url("/src/images/banner_img.png") no-repeat center;
     background-size: 100% 100%;
     background-blend-mode: 0.5;
     height: 45em;
@@ -16,3 +26,37 @@
     z-index: 1;
     opacity: 0.9;
 }
+
+.banner_card{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 3.7em;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.banner_card h1{
+    font-weight: 900;
+}
+
+.registerBtn{
+    background-color: #ffa500;
+    padding: 1em 2em;
+    width: 50%;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.registerBtn:hover{
+    color: #fff;
+    box-shadow: 2px 2px 2px 2px #2a000017;
+
+}
+
+.logoContainer *{
+    height: 2em;
+    width: 3.2em;
+}
+

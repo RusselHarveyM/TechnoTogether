@@ -2,17 +2,19 @@
 a{
     text-decoration: none;
     font-weight: 600;
-    color:#fff;
+    color:#413E3E;
 }
 
 a:hover{
     color: #ffa500;
 }
 
+
+
 .banner_nav{
     display: flex;
     align-items: center;
-    padding: 0 1em;
+    padding: 0 0 4em;
     justify-content: space-between;
     width: 100%;
     z-index: 2;
@@ -21,6 +23,7 @@ a:hover{
 
 .banner_nav_nav{
     display: flex;
+    align-items: center;
     width: 50em;
     justify-content: space-around;
 }
