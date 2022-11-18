@@ -24,10 +24,6 @@ public class StudentEntity {
     @Column(name = "u_organization")
     private String organization;
 
-    @ManyToOne
-    @JoinColumn(name="id")
-    private SoloSpaceEntity soloSpaceEntity;
-
     public StudentEntity(){}
 
     public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization) {

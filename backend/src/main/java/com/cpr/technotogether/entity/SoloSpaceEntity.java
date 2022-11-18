@@ -11,7 +11,13 @@ public class SoloSpaceEntity {
     @Column(name = "soloSpaceId")
     private int id;
 
-    @OneToMany
+    @OneToOne(cascade={
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH,
+            CascadeType.REMOVE
+    })
     @JoinColumn(name="username")
     private StudentEntity student;
 
