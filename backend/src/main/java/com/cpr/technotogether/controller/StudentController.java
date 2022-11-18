@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/student")
 public class StudentController {
     private StudentService sserv;
 
@@ -23,6 +23,11 @@ public class StudentController {
     @PostMapping("/addUser")
     public void addStudent(@RequestBody()StudentEntity student){
         sserv.createStudent(student);
+    }
+
+    @DeleteMapping("/deleteUser")
+    public void deleteStudent(@RequestParam("username")String username){
+        sserv.deleteByUsername(username);
     }
 
     @PutMapping("/updateUser")
