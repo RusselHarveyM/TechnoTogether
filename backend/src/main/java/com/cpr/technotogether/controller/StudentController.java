@@ -15,13 +15,18 @@ public class StudentController {
         this.sserv = sserv;
     }
 
-    @GetMapping("/getStudent")
-    public StudentEntity findByUsername(@RequestParam("Username")String username){
+    @GetMapping("/getUser")
+    public StudentEntity findByUsername(@RequestParam("username")String username){
         return sserv.findByUsername(username);
     }
 
-    @PostMapping("/addStudent")
+    @PostMapping("/addUser")
     public void addStudent(@RequestBody()StudentEntity student){
         sserv.createStudent(student);
+    }
+
+    @PutMapping("/updateUser")
+    public void updateStudent(@RequestBody()StudentEntity student ){
+        sserv.updateUser(student);
     }
 }

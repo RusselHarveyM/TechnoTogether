@@ -27,6 +27,8 @@ public class StudentEntity {
     @Column(name = "u_organization")
     private String organization;
 
+    public StudentEntity(){}
+
     public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization) {
         this.username = username;
         this.password = password;
