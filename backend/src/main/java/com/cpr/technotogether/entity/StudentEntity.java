@@ -1,9 +1,6 @@
 package com.cpr.technotogether.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_user")
@@ -26,6 +23,10 @@ public class StudentEntity {
 
     @Column(name = "u_organization")
     private String organization;
+
+    @ManyToOne
+    @JoinColumn(name="id")
+    private SoloSpaceEntity soloSpaceEntity;
 
     public StudentEntity(){}
 
