@@ -40,4 +40,8 @@ public class StudentService {
         }
     }
 
+    public void updateUser(StudentEntity student){
+        srepo.save(student);
+    }
+
 }
