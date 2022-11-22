@@ -25,14 +25,11 @@ public class StudentController {
         sserv.createStudent(student);
     }
 
-<<<<<<< HEAD
-=======
     @DeleteMapping("/deleteUser")
     public void deleteStudent(@RequestParam("username")String username){
         sserv.deleteByUsername(username);
     }
 
->>>>>>> solospace
     @PutMapping("/updateUser")
     public void updateStudent(@RequestBody()StudentEntity student ){
         sserv.updateUser(student);
