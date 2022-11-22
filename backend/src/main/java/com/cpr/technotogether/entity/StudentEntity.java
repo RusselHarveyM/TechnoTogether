@@ -1,13 +1,13 @@
 package com.cpr.technotogether.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_user")
 public class StudentEntity {
 
     @Id
-    @Column(name = "username")
     private String username;
 
     @Column(name = "u_password")
@@ -24,9 +24,13 @@ public class StudentEntity {
     @Column(name = "u_organization")
     private String organization;
 
+    @OneToMany(mappedBy = "user",
+                cascade = CascadeType.ALL)
+    private List<TopicReplyEntity> reply;
+
     public StudentEntity(){}
 
-    public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization) {
+    public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization, List<TopicReplyEntity> reply) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -34,6 +38,7 @@ public class StudentEntity {
         this.lastname = lastname;
         this.points = points;
         this.organization = organization;
+        this.reply = reply;
     }
 
     public String getUsername() {
@@ -90,5 +95,13 @@ public class StudentEntity {
 
     public void setOrganization(String organization) {
         this.organization = organization;
+    }
+
+    public List<TopicReplyEntity> getReply() {
+        return reply;
+    }
+
+    public void setReply(List<TopicReplyEntity> reply) {
+        this.reply = reply;
     }
 }
