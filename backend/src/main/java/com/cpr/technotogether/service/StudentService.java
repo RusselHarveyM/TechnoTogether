@@ -4,11 +4,12 @@ import com.cpr.technotogether.entity.StudentEntity;
 import com.cpr.technotogether.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
+@Transactional
 @Service
 public class StudentService {
     private StudentRepository srepo;
@@ -25,30 +26,18 @@ public class StudentService {
 
     //Read a student record by first name
     public StudentEntity findByFirstname(String firstname){
-        Optional<StudentEntity> result = srepo.findById(firstname);
-
-        StudentEntity studentEntity = null;
-
-        if(result.isPresent()){
-            studentEntity = result.get();
-        }else{
-            throw new RuntimeException("Not found");
-        }
-        return studentEntity;
+    	if(srepo.findByFirstname(firstname) != null)
+			return srepo.findByFirstname(firstname);
+		else
+			return null;
     }
     
     //Read a student record by username
     public StudentEntity findByUsername(String username){
-        Optional<StudentEntity> result = srepo.findById(username);
-
-        StudentEntity studentEntity = null;
-
-        if(result.isPresent()){
-            studentEntity = result.get();
-        }else{
-            throw new RuntimeException("Not found");
-        }
-        return studentEntity;
+    	if(srepo.findByUsername(username) != null)
+			return srepo.findByUsername(username);
+		else
+			return null;
     }
     
     //Read all students records from tbl_student
@@ -76,8 +65,9 @@ public class StudentService {
   		}
   	}
   	
-    public String deleteByUsername(String username){
-        //StudentEntity student = findByUsername(username);
+  	@SuppressWarnings("unused")
+	public String deleteByUsername(String username){
+        StudentEntity student = findByUsername(username);
         String msg;
         if(srepo.findByUsername(username) != null) {	//step 1 - find the record
 			srepo.deleteByUsername(username); 			//step 2 - delete the record
@@ -87,6 +77,7 @@ public class StudentService {
 			msg = "Student username " + username + " is NOT FOUND";
 		}
 		return msg;
+  		//return srepo.deleteByUsername(username);
     }
 
 }
