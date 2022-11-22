@@ -9,29 +9,24 @@ public class ForumTopicEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "topic_id")
-    private int id;
+    private int topic_id;
 
     @Column(name = "topic_subject")
     private String subject;
 
-    @OneToMany(mappedBy = "topic",
-               cascade = CascadeType.ALL)
-    private List<TopicReplyEntity> replies;
-
     public ForumTopicEntity(){}
 
-    public ForumTopicEntity(int id, String subject) {
-        this.id = id;
+    public ForumTopicEntity(int topic_id, String subject) {
+        this.topic_id = topic_id;
         this.subject = subject;
     }
 
-    public int getId() {
-        return id;
+    public int getTopic_id() {
+        return topic_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTopic_id(int topic_id) {
+        this.topic_id = topic_id;
     }
 
     public String getSubject() {

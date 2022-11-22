@@ -1,7 +1,6 @@
 package com.cpr.technotogether.service;
 
 import com.cpr.technotogether.entity.ForumTopicEntity;
-import com.cpr.technotogether.entity.SoloSpaceEntity;
 import com.cpr.technotogether.repository.ForumTopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

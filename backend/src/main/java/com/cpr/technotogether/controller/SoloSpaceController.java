@@ -1,7 +1,6 @@
 package com.cpr.technotogether.controller;
 
 import com.cpr.technotogether.entity.SoloSpaceEntity;
-import com.cpr.technotogether.entity.StudentEntity;
 import com.cpr.technotogether.service.SoloSpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

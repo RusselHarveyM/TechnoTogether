@@ -8,9 +8,13 @@ import java.util.List;
 public class StudentEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private int id;
+
     private String username;
 
-    @Column(name = "u_password")
+    @Column(name = "user_password")
     private String password;
 
     private String firstname;
@@ -24,13 +28,11 @@ public class StudentEntity {
     @Column(name = "u_organization")
     private String organization;
 
-    @OneToMany(mappedBy = "user",
-                cascade = CascadeType.ALL)
-    private List<TopicReplyEntity> reply;
 
     public StudentEntity(){}
 
-    public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization, List<TopicReplyEntity> reply) {
+    public StudentEntity(int id, String username, String password, String firstname, String middlename, String lastname, int points, String organization) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -38,7 +40,14 @@ public class StudentEntity {
         this.lastname = lastname;
         this.points = points;
         this.organization = organization;
-        this.reply = reply;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -95,13 +104,5 @@ public class StudentEntity {
 
     public void setOrganization(String organization) {
         this.organization = organization;
-    }
-
-    public List<TopicReplyEntity> getReply() {
-        return reply;
-    }
-
-    public void setReply(List<TopicReplyEntity> reply) {
-        this.reply = reply;
     }
 }

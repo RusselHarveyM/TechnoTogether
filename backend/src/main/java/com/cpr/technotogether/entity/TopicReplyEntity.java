@@ -1,5 +1,7 @@
 package com.cpr.technotogether.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -12,6 +14,7 @@ public class TopicReplyEntity {
     @Column(name = "reply_id")
     private int id;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date_sent;
 
     private String message;
@@ -22,7 +25,7 @@ public class TopicReplyEntity {
             CascadeType.PERSIST,
             CascadeType.REFRESH,
     })
-    @JoinColumn(name="username")
+    @JoinColumn(name = "id")
     private StudentEntity user;
 
     @ManyToOne(cascade={
@@ -31,7 +34,7 @@ public class TopicReplyEntity {
             CascadeType.PERSIST,
             CascadeType.REFRESH,
     })
-    @JoinColumn(name="id")
+    @JoinColumn(name = "topic_id")
     private ForumTopicEntity topic;
 
     public TopicReplyEntity(){}

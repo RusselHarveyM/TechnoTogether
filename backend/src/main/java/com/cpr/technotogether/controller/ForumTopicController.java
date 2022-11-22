@@ -1,12 +1,9 @@
 package com.cpr.technotogether.controller;
 
 import com.cpr.technotogether.entity.ForumTopicEntity;
-import com.cpr.technotogether.entity.SoloSpaceEntity;
 import com.cpr.technotogether.service.ForumTopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/forum_topic")
@@ -20,8 +17,8 @@ public class ForumTopicController {
     }
 
     @PostMapping("/addTopic")
-    public void addTopic(@RequestBody()ForumTopicEntity solospace){
-        ftserv.addForumTopic(solospace);
+    public void addTopic(@RequestBody()ForumTopicEntity topic){
+        ftserv.addForumTopic(topic);
     }
 
     @DeleteMapping("/deleteTopic")
