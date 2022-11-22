@@ -49,6 +49,11 @@ public class StudentEntity {
 	}
 	
 
+	public StudentEntity() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 	public String toString() {
 		return "StudentEntity [firstname=" + firstname + ", middlename=" + middlename + ", lastname=" + lastname
