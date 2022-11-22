@@ -47,6 +47,15 @@ public class StudentEntity {
 		this.identification = identification;
 		this.points = points;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "StudentEntity [firstname=" + firstname + ", middlename=" + middlename + ", lastname=" + lastname
+				+ ", age=" + age + ", address=" + address + ", phonenumber=" + phonenumber + ", username=" + username
+				+ ", password=" + password + ", email=" + email + ", identification=" + identification + ", points="
+				+ points + "]";
+	}
 
 	public String getFirstname() {
 		return firstname;
