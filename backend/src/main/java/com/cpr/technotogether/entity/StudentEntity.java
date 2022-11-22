@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "tbl_student")
 public class StudentEntity {
 
-    @Id
     private String firstname;
     
     private String middlename;
@@ -17,8 +16,9 @@ public class StudentEntity {
     
     private String address;
     
-    private int phonenumber;
+    private String phonenumber;
     
+    @Id
     @Column(name = "username")
     private String username;
     
@@ -32,7 +32,7 @@ public class StudentEntity {
     
     private int points;
 
-	public StudentEntity(String firstname, String middlename, String lastname, int age, String address, int phonenumber,
+	public StudentEntity(String firstname, String middlename, String lastname, int age, String address, String phonenumber,
 			String username, String password, String email, String identification, int points) {
 		super();
 		this.firstname = firstname;
@@ -50,9 +50,7 @@ public class StudentEntity {
 	
 
 	public StudentEntity() {
-		// TODO Auto-generated constructor stub
 	}
-
 
 	@Override
 	public String toString() {
@@ -102,11 +100,11 @@ public class StudentEntity {
 		this.address = address;
 	}
 
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
 
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 
