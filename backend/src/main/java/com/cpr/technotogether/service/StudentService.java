@@ -89,8 +89,4 @@ public class StudentService {
 		return msg;
     }
 
-    public void updateUser(StudentEntity student){
-        srepo.save(student);
-    }
-
 }
