@@ -6,9 +6,11 @@ import com.cpr.technotogether.service.StudentService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Transactional
 @RequestMapping("/student")
 public class StudentController {
     private StudentService sserv;
@@ -23,16 +25,16 @@ public class StudentController {
         sserv.createStudent(student);
     }
     
+    @GetMapping("/getByFirstname")
+    public StudentEntity findByFirstname(@RequestParam("firstname")String firstname){
+        return sserv.findByFirstname(firstname);
+    }
+    
     @GetMapping("/getByUsername")
     public StudentEntity findByUsername(@RequestParam("username")String username){
         return sserv.findByUsername(username);
     }
     
-    @GetMapping("/getByFirstname")
-    public StudentEntity findByFirstname(@RequestParam("firstname")String firstname){
-        return sserv.findByFirstname(firstname);
-    }
-
     @GetMapping("/getAllStudents")
 	public List<StudentEntity> getAllStudents(){
 		return sserv.getAllStudents();
@@ -44,13 +46,13 @@ public class StudentController {
     }*/
     
     @PutMapping("/putStudent")
-	public StudentEntity putStudent(@RequestBody StudentEntity newStudentDetails)throws Exception {
-		return sserv.putStudent(null, newStudentDetails);
+	public StudentEntity putStudent(@RequestParam String username, @RequestBody StudentEntity newStudentDetails)throws Exception {
+		return sserv.putStudent(username, newStudentDetails);
 	}
     
-    @DeleteMapping("/deleteStudent")
-    public void deleteStudent(@RequestParam("username")String username){
-        sserv.deleteByUsername(username);
+    @DeleteMapping("/deleteStudent/{username}")
+    public String deleteStudent(@PathVariable("username")String username){
+        return sserv.deleteByUsername(username);
     }
 
 }
