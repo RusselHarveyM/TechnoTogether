@@ -2,6 +2,9 @@ package com.cpr.technotogether.controller;
 
 import com.cpr.technotogether.entity.StudentEntity;
 import com.cpr.technotogether.service.StudentService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,23 +18,39 @@ public class StudentController {
         this.sserv = sserv;
     }
 
-    @GetMapping("/getUser")
+    @PostMapping("/postStudent")
+    public void postStudent(@RequestBody()StudentEntity student){
+        sserv.createStudent(student);
+    }
+    
+    @GetMapping("/getByUsername")
     public StudentEntity findByUsername(@RequestParam("username")String username){
         return sserv.findByUsername(username);
     }
-
-    @PostMapping("/addUser")
-    public void addStudent(@RequestBody()StudentEntity student){
-        sserv.createStudent(student);
+    
+    @GetMapping("/getByFirstname")
+    public StudentEntity findByFirstname(@RequestParam("firstname")String firstname){
+        return sserv.findByFirstname(firstname);
     }
 
-    @DeleteMapping("/deleteUser")
+    @GetMapping("/getAllStudents")
+	public List<StudentEntity> getAllStudents(){
+		return sserv.getAllStudents();
+	}
+    
+    /*@PutMapping("/updateUser")
+    public void updateStudent(@RequestBody()StudentEntity student ){
+        sserv.updateUser(student);
+    }*/
+    
+    @PutMapping("/putStudent")
+	public StudentEntity putStudent(@RequestBody StudentEntity newStudentDetails)throws Exception {
+		return sserv.putStudent(null, newStudentDetails);
+	}
+    
+    @DeleteMapping("/deleteStudent")
     public void deleteStudent(@RequestParam("username")String username){
         sserv.deleteByUsername(username);
     }
 
-    @PutMapping("/updateUser")
-    public void updateStudent(@RequestBody()StudentEntity student ){
-        sserv.updateUser(student);
-    }
 }
