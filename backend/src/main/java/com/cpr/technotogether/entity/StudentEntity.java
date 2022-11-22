@@ -22,12 +22,12 @@ public class StudentEntity {
     @Column(name = "username")
     private String username;
     
-    @Column(name = "u_password")
+    @Column(name = "password")
     private String password;
     
     private String email;
     
-    @Column(name = "u_identification")
+    @Column(name = "identification")
     private String identification;
     
     private int points;
