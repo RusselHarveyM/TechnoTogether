@@ -20,7 +20,7 @@ public class StudentService {
     }
     
     //Create a student record
-    public StudentEntity createStudent(StudentEntity student){
+    public StudentEntity postStudent(StudentEntity student){
         return srepo.save(student);
     }
 
