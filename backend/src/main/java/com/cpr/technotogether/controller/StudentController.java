@@ -22,7 +22,7 @@ public class StudentController {
 
     @PostMapping("/postStudent")
     public void postStudent(@RequestBody()StudentEntity student){
-        sserv.createStudent(student);
+        sserv.postStudent(student);
     }
     
     @GetMapping("/getByFirstname")
@@ -50,8 +50,8 @@ public class StudentController {
 		return sserv.putStudent(username, newStudentDetails);
 	}
     
-    @DeleteMapping("/deleteStudent/{username}")
-    public String deleteStudent(@PathVariable("username")String username){
+    @DeleteMapping("/deleteStudent")
+    public String deleteStudent(@RequestParam("username")String username){
         return sserv.deleteByUsername(username);
     }
 
