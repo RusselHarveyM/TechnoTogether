@@ -7,5 +7,5 @@ public interface StudentRepository extends JpaRepository<StudentEntity, String> 
 	
 	StudentEntity findByFirstname(String firstname);
 	StudentEntity findByUsername(String username);
-	StudentEntity deleteByUsername(String username);
+	int deleteByUsername(String username);
 }
