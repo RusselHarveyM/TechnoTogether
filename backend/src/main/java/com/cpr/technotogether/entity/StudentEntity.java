@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_student")
 public class StudentEntity {
-
+	
     private String firstname;
     
     private String middlename;
