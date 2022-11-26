@@ -1,6 +1,7 @@
 import "../landing.css";
 import "./Banner.css";
 import Navigation from "./navigation/Navigation";
+import Logo from "./logo/Logo";
 
 function Banner() {
   return (
@@ -11,20 +12,7 @@ function Banner() {
         <a href="#" className="registerBtn">
           Register
         </a>
-        <nav className="logoContainer">
-          <img
-            src="https://download.logo.wine/logo/Facebook/Facebook-f_Logo-Black-Logo.wine.png"
-            alt="fb_logo"
-          />
-          <img
-            src="https://download.logo.wine/logo/Gmail/Gmail-Logo.wine.png"
-            alt="gmail_logo"
-          />
-          <img
-            src="https://download.logo.wine/logo/Discord_(software)/Discord_(software)-Logo-Black-Logo.wine.png"
-            alt="discord_logo"
-          />
-        </nav>
+        <Logo />
       </div>
     </div>
   );
