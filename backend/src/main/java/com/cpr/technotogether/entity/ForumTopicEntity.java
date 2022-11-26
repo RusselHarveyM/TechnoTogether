@@ -1,7 +1,6 @@
 package com.cpr.technotogether.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_forum_topic")
@@ -9,24 +8,33 @@ public class ForumTopicEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int topic_id;
+    @Column(name = "topic_id")
+    private int topicId;
 
     @Column(name = "topic_subject")
     private String subject;
 
+//    @OneToMany(cascade = {
+//            CascadeType.DETACH,
+//            CascadeType.MERGE,
+//            CascadeType.PERSIST,
+//            CascadeType.REFRESH
+//    })
+//    private List<TopicReplyEntity> replies;
+
     public ForumTopicEntity(){}
 
-    public ForumTopicEntity(int topic_id, String subject) {
-        this.topic_id = topic_id;
+    public ForumTopicEntity(int topicId, String subject) {
+        this.topicId = topicId;
         this.subject = subject;
     }
 
-    public int getTopic_id() {
-        return topic_id;
+    public int getTopicId() {
+        return topicId;
     }
 
-    public void setTopic_id(int topic_id) {
-        this.topic_id = topic_id;
+    public void setTopicId(int topicId) {
+        this.topicId = topicId;
     }
 
     public String getSubject() {
