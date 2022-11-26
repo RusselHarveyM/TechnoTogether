@@ -1,11 +1,13 @@
 package com.cpr.technotogether.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -17,10 +19,8 @@ public class TopicReplyEntity {
     @Column(name = "reply_id")
     private int replyId;
 
-//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date date_sent;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime date_sent;
 
     private String message;
 
@@ -38,7 +38,7 @@ public class TopicReplyEntity {
 
     public TopicReplyEntity(){}
 
-    public TopicReplyEntity(int replyId, Date date_sent, String message, StudentEntity user, ForumTopicEntity topic) {
+    public TopicReplyEntity(int replyId, LocalDateTime date_sent, String message, StudentEntity user, ForumTopicEntity topic) {
         this.replyId = replyId;
         this.date_sent = date_sent;
         this.message = message;
@@ -54,11 +54,11 @@ public class TopicReplyEntity {
         this.replyId = replyId;
     }
 
-    public Date getDate_sent() {
+    public LocalDateTime getDate_sent() {
         return date_sent;
     }
 
-    public void setDate_sent(Date date_sent) {
+    public void setDate_sent(LocalDateTime date_sent) {
         this.date_sent = date_sent;
     }
 
