@@ -1,9 +1,12 @@
 package com.cpr.technotogether.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "tbl_topic_reply")
@@ -12,54 +15,50 @@ public class TopicReplyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reply_id")
-    private int id;
+    private int replyId;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime date_sent;
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    private Date date_sent;
 
     private String message;
 
-    @ManyToOne(cascade={
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH,
-    })
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private StudentEntity user;
 
-    @ManyToOne(cascade={
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.PERSIST,
-            CascadeType.REFRESH,
-    })
-    @JoinColumn(name = "topic_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "topic_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private ForumTopicEntity topic;
 
     public TopicReplyEntity(){}
 
-    public TopicReplyEntity(int id, LocalDateTime date_sent, String message, StudentEntity student, ForumTopicEntity topic) {
-        this.id = id;
+    public TopicReplyEntity(int replyId, Date date_sent, String message, StudentEntity user, ForumTopicEntity topic) {
+        this.replyId = replyId;
         this.date_sent = date_sent;
         this.message = message;
-        this.user = student;
+        this.user = user;
         this.topic = topic;
     }
 
-    public int getId() {
-        return id;
+    public int getReplyId() {
+        return replyId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setReplyId(int replyId) {
+        this.replyId = replyId;
     }
 
-    public LocalDateTime getDate_sent() {
+    public Date getDate_sent() {
         return date_sent;
     }
 
-    public void setDate_sent(LocalDateTime date_sent) {
+    public void setDate_sent(Date date_sent) {
         this.date_sent = date_sent;
     }
 
