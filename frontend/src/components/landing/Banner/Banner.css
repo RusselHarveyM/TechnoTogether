@@ -34,15 +34,18 @@
     font-weight: 900;
 }
 
-.registerBtn{
+.rgstr_link{
     background-color: #ffa500;
+    text-decoration: none;
+    font-weight: 600;
+    color:#413E3E;
     padding: 1em 2em;
     width: 50%;
     border-radius: 20px;
     transition: 0.4s;
 }
 
-.registerBtn:hover{
+.rgstr_link:hover{
     color: #fff;
     box-shadow: 2px 2px 2px 2px #2a000017;
 
