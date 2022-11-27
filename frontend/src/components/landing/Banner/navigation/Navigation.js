@@ -20,7 +20,7 @@ function Navigation() {
         <Link to="" className="nav_links">
           About
         </Link>
-        <Link to="" className="nav_links">
+        <Link to="/login" className="nav_links">
           Login
         </Link>
       </div>
