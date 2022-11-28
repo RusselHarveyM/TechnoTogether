@@ -16,7 +16,6 @@ public class SoloSpaceEntity {
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH,
-            CascadeType.REMOVE
     })
     @JoinColumn(name="username")
     private StudentEntity student;
