@@ -1,0 +1,50 @@
+.login_body{
+    background: url("/src/images/login_bg.png") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.field_div{
+    display: flex;
+    flex-direction: column;
+}
+
+.login_container{
+    display: flex;
+    align-items: center;
+    padding: 2em;
+    flex-direction: column;
+    background-color: #313131;
+    height: 20em;
+    width: 20em;
+    border-radius: 10px;
+}
+
+form{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.login_fields{
+    color: #fff;
+}
+
+input{
+    border-radius: 0.3em;
+    border: #fff;
+}
+
+.loginBtn{
+    color: #fff;
+    font-weight: 550;
+    background-color: #d88d00;
+    border-radius: 0.3em;
+    padding: 0.5em;
+}
