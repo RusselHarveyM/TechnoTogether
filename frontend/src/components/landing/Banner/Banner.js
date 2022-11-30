@@ -9,20 +9,22 @@ function Banner() {
   // let match = useMatch();
 
   return (
-    <div className="wrapper">
-      <Navigation />
-      <div className="banner_card">
-        <h1>Join now and learn together!</h1>
-        <a href="#" className="rgstr_link">
-          Register
-        </a>
-        {/* <Link to={`${match.url}/register`} className="rgstr_link">
+    <div className="o_wrapper">
+      <div className="wrapper">
+        <Navigation />
+        <div className="banner_card">
+          <h1>Join now and learn together!</h1>
+          <a href="#" className="rgstr_link">
+            Register
+          </a>
+          {/* <Link to={`${match.url}/register`} className="rgstr_link">
           Register
         </Link>
         <Routes>
           <Route exact path="/register"></Route>
         </Routes> */}
-        <Logo />
+          <Logo />
+        </div>
       </div>
     </div>
   );
