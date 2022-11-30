@@ -9,6 +9,16 @@
     justify-content: center;
     align-items: center;
 }
+
+.not_yet_rgstrd_link{
+    text-decoration: none;
+    color: #ffa500;
+  }
+
+  .not_yet_rgstrd_link:hover{
+    color: #ffb52a;
+  }
+
 .field_div{
     display: flex;
     flex-direction: column;

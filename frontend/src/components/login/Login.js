@@ -1,4 +1,5 @@
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -20,6 +21,9 @@ function Login() {
           </div>
           <input type="submit" value="Submit" className="loginBtn" />
         </form>
+        <Link to="" className="not_yet_rgstrd_link">
+          No account yet?
+        </Link>
       </div>
     </div>
   );
