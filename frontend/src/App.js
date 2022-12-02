@@ -1,7 +1,7 @@
 import "./App.css";
 import Landing from "./components/landing/Landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Forum from "./components/forum/forum";
+import Forum from "./components/forum/Forum";
 import Login from "./components/login/Login";
 
 function App() {

@@ -12,6 +12,5 @@ public interface TopicReplyRepository extends JpaRepository<TopicReplyEntity, In
     Optional<TopicReplyEntity> findByReplyIdAndTopic_TopicId(int topic_id, int reply_id);
 
     Page<TopicReplyEntity> findByUser_Id(int user_id, Pageable pageable);
-    Optional<TopicReplyEntity> findByReplyIdAndUser_Id(int user_id, int reply_id);
 }
 
