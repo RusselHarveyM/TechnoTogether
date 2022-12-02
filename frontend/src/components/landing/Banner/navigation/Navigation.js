@@ -14,8 +14,8 @@ function Navigation() {
         <Link to="" className="nav_links">
           Design a Study Universe
         </Link>
-        <Link to="/forum" className="nav_links">
-          Forums
+        <Link to="/home" className="nav_links">
+          Home
         </Link>
         <Link to="" className="nav_links">
           About
