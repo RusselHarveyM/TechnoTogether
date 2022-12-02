@@ -13,6 +13,13 @@
 .grid_head_nav{
     background-color: #413E3E;
     grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#grid_head_nav_search{
+    width: 30%;
 }
 
 .grid_home_nav{
@@ -64,4 +71,8 @@ color: #ffa500;
     padding-top: 20px;
     background-color: #ffa500;
     border-radius: 10px;
+}
+
+.home_link{
+    color:#ffa500;
 }

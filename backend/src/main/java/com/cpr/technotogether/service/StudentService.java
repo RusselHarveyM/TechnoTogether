@@ -5,6 +5,7 @@ import com.cpr.technotogether.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +17,9 @@ public class StudentService {
         this.srepo = srepo;
     }
 
+    public List<StudentEntity> getAllStudents(){
+        return this.srepo.findAll();
+    }
     public StudentEntity createStudent(StudentEntity student){
         return srepo.save(student);
     }

@@ -5,6 +5,8 @@ import com.cpr.technotogether.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -18,6 +20,11 @@ public class StudentController {
     @GetMapping("/getUser")
     public StudentEntity findByid(@RequestParam("id")int id){
         return sserv.findById(id);
+    }
+
+    @GetMapping("/getAllUser")
+    public List<StudentEntity> getAllUser(){
+        return sserv.getAllStudents();
     }
 
     @PostMapping("/addUser")
