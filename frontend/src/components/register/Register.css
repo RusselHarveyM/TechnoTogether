@@ -1,0 +1,95 @@
+/***    Register Page     ***/
+#checkbox {
+    width: 2rem
+  }
+  
+  form span {
+    font-size: .9rem;
+  }
+  
+  form {
+    border-radius: 30px;
+    box-shadow: 5px 10px;
+    color: rgb(94, 92, 92);
+  }
+  
+  #reset_pass_lbl {
+    float: left
+  }
+  
+  button[type="submit"]{
+    margin: 10px 0;
+    width: 100%;
+    height: 40px;
+    border: 1px solid;
+    border-radius:25px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    outline:none ;
+  }
+  
+  button[type="submit"]:hover{
+    transition: .5s;
+  }
+  
+  .Register {
+    height: 100vh;
+    background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);  overflow: hidden;
+  }
+  
+  .Register .textfields {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+  }
+  
+  .textfields input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
+  .textfields label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .textfields span:after{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9 ;
+    transition: .5s;
+  }
+  
+  .textfields input:focus ~ label,
+  .textfields input:valid ~ label {
+      top: -5px; 
+      color:#2691d9;  
+  }
+  .textfields:focus-within span:after{
+      width: 100%;  
+  }
+
+  .logo1 {
+    margin-top: -70px;
+    margin-left: 10px;
+    scale: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+  }
