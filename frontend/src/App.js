@@ -3,7 +3,7 @@ import Landing from "./components/landing/Landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login/Login";
 import Home from "./components/home/Home";
-import Register from "./components/register/Register"
+import Register from "./components/register/Register";
 import { useState } from "react";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route path="/home/*" element={<Home basename="/home" />} />
+          <Route path="/home/*" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
