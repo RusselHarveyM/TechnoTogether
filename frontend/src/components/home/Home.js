@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.css";
 import logo from "../../images/logo.png";
-import Forum from "../forum/Forum";
+import Forum from "../forum/forum";
+import Findtutor from "../findtutor/findtutor";
 import Overview from "../overview/Overview";
 import { Routes, Route, Link } from "react-router-dom";
 
@@ -27,7 +28,7 @@ function Home() {
             <Link>Learning Goals</Link>
             <Link>Chat Room</Link>
             <Link>Study Statistics</Link>
-            <Link>Find Tutor</Link>
+            <Link to ="findtutor" className="nav_links_findtutor">Find Tutor</Link>
             <Link to="forum" className="nav_links">
               Forum
             </Link>
@@ -40,6 +41,7 @@ function Home() {
         <article className="grid_body">
           <Routes>
             <Route path="/forum" element={<Forum />} />
+            <Route path="/findtutor" element={<Findtutor />} />
             <Route path="" element={<Overview />} />
           </Routes>
         </article>
