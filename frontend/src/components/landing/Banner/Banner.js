@@ -1,30 +1,32 @@
 import "../landing.css";
 import "./Banner.css";
 import Navigation from "./navigation/Navigation";
+import Logo from "./logo/Logo";
+import { Link } from "react-router-dom";
+// only enable if register component
 
 function Banner() {
+  // let match = useMatch();
+
   return (
-    <div className="wrapper">
-      <Navigation />
-      <div className="banner_card">
-        <h1>Join now and learn together!</h1>
-        <a href="#" className="registerBtn">
+    <div className="o_wrapper">
+      <div className="wrapper">
+        <Navigation />
+        <div className="banner_card">
+          <h1>Join now and learn together!</h1>
+          <div class="RegBtn">
+                <Link to="/register">
+                    <button class = "reg_btn"><span>Register Now</span></button>
+                </Link>
+            </div>
+          {/* <Link to={`${match.url}/register`} className="rgstr_link">
           Register
-        </a>
-        <nav className="logoContainer">
-          <img
-            src="https://download.logo.wine/logo/Facebook/Facebook-f_Logo-Black-Logo.wine.png"
-            alt="fb_logo"
-          />
-          <img
-            src="https://download.logo.wine/logo/Gmail/Gmail-Logo.wine.png"
-            alt="gmail_logo"
-          />
-          <img
-            src="https://download.logo.wine/logo/Discord_(software)/Discord_(software)-Logo-Black-Logo.wine.png"
-            alt="discord_logo"
-          />
-        </nav>
+        </Link>
+        <Routes>
+          <Route exact path="/register"></Route>
+        </Routes> */}
+          <Logo />
+        </div>
       </div>
     </div>
   );

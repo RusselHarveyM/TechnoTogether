@@ -20,8 +20,8 @@ public class StudentService {
         return srepo.save(student);
     }
 
-    public StudentEntity findByUsername(String username){
-        Optional<StudentEntity> result = srepo.findById(username);
+    public StudentEntity findById(int id){
+        Optional<StudentEntity> result = srepo.findById(id);
 
         StudentEntity studentEntity = null;
 
@@ -33,8 +33,8 @@ public class StudentService {
         return studentEntity;
     }
 
-    public void deleteByUsername(String username){
-        StudentEntity student = findByUsername(username);
+    public void deleteById(int id){
+        StudentEntity student = findById(id);
         if(student != null){
             srepo.delete(student);
         }
