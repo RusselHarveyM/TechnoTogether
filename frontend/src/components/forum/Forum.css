@@ -11,7 +11,10 @@
     border-right: 1px solid #413e3e5c;
     padding: 10px;
     grid-area: content;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
 .forum_out_section{
     grid-area: sidebar2;
 }
