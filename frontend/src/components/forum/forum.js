@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Forum.css";
 import Icon from "@mui/material/Icon";
 import { Link } from "react-router-dom";
@@ -37,11 +37,11 @@ const submitButtonStyle = {
 };
 
 function Forum() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [subjectValue, setSubjectValue] = React.useState("");
-  const [contentValue, setContentValue] = React.useState("");
+  const [subjectValue, setSubjectValue] = useState("");
+  const [contentValue, setContentValue] = useState("");
 
   const handleSubjectChange = (event) => {
     setSubjectValue(event.target.value);
