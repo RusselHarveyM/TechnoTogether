@@ -1,0 +1,78 @@
+.gridForum_container{
+    display: grid;
+    grid-template-columns: 0.18fr 1fr;
+    grid-template-rows: 50px auto;
+    height: 100vh;
+    justify-content: center;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "sidebar content"
+}
+
+.grid_head_nav{
+    background-color: #413E3E;
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#grid_head_nav_search{
+    width: 30%;
+}
+
+.grid_home_nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #413E3E;
+    grid-area: sidebar;
+}
+
+.grid_body{
+    grid-area: content;
+}
+
+.grid_home_nav_items *, .applyTutor_Btn, .merchant{
+    text-decoration: none;
+    color: #fff;
+}
+.grid_home_nav_items *:hover{
+color: #ffa500;
+}
+
+.applyTutor_Btn:hover{
+    transition: 0.5s;
+    background-color: #fff;
+    color: #ffa500;
+}
+
+.applyTutor_Btn{
+    padding: 10px 20px 10px 20px;
+    background-color: #ffa500;
+    font-weight: 700;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.grid_home_nav_items{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.merchant{
+    height: 200px;
+    width: 150px;
+    margin: 2px;
+    margin-bottom: 15px;
+    padding-top: 20px;
+    background-color: #ffa500;
+    border-radius: 10px;
+}
+
+.home_link{
+    color:#ffa500;
+}
