@@ -28,13 +28,13 @@ public class TopicReplyController {
     @Autowired
     private StudentService sserv;
 
-    @GetMapping("/topics/{topic_id}/replies")
+    @GetMapping("/topics/topic/{topic_id}/replies")
     public Page<TopicReplyEntity> getAllRepliesByTopicId(@PathVariable (value = "topic_id") int topic_id,
                                                          Pageable pageable) {
         return trrepo.findByTopic_TopicId(topic_id, pageable);
     }
 
-    @GetMapping("/topics/{user_id}/replies")
+    @GetMapping("/topics/user/{user_id}/replies")
     public Page<TopicReplyEntity> getAllRepliesByUserId(@PathVariable (value = "user_id") int user_id,
                                                          Pageable pageable) {
         return trrepo.findByUser_Id(user_id, pageable);

@@ -35,7 +35,7 @@ public class ForumTopicController {
     }
 
     @PutMapping("/updateTopic/{topic_id}")
-    public ForumTopicEntity updateTopic(@PathVariable int topic_id, @RequestBody() ForumTopicEntity forumTopic ){
+    public ForumTopicEntity updateTopic(@PathVariable(value = "topic_id") int topic_id, @RequestBody() ForumTopicEntity forumTopic ){
         return ftserv.updateTopic(topic_id, forumTopic);
     }
 
