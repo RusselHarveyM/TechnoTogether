@@ -6,6 +6,8 @@ import Paper from '@mui/material/Paper';
 import { Stack } from "@mui/system";
 import RangeSliderPrice from "./pricefilter";
 import RadioButtonsSchedule from "./schedulefilter";
+import SearchBar1 from "./SearchBar1"
+import SelectStudentLevel from "./SelectStudentLevel";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -16,6 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 function Findtutor() {
   return (
     <>
+    <div className="main">
+        <SearchBar1/>
     <div className="WholeContainer">
     <div className="CardContainerFilter">
     <Stack
@@ -24,6 +28,7 @@ function Findtutor() {
   alignItems="left"
 >
   <Item><RangeSliderPrice/></Item>
+  <Item><SelectStudentLevel/></Item>
   <Item><RadioButtonsSchedule/></Item>
   
 </Stack>
@@ -43,7 +48,7 @@ function Findtutor() {
 
     </div>
    
-
+    </div>
     </>
   );
  
