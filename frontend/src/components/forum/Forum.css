@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 0.3fr 1fr 0.28fr;
     justify-content: center;
+    height: 100vh;
     grid-template-areas: 
     "sidebar1 content sidebar2"
     "sidebar1 content sidebar2"
