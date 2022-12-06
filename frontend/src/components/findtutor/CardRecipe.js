@@ -34,7 +34,7 @@ export default function RecipeReviewCard() {
 
   return (
    
-    <Card sx={{ maxWidth: 775 }}>
+    <Card sx={{ maxWidth: 750 }}>
   
     <CardHeader
 
