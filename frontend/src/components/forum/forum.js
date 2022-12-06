@@ -8,17 +8,32 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const style = {
   position: "absolute",
+  display: "flex",
+  flexDirection: "column",
+  borderRadius: 5,
+  gap: 5,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 600,
   bgcolor: "#fff",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+};
+
+const submitButtonStyle = {
+  bgcolor: "#413E3E",
+  color: "#ffa500",
+  borderRadius: 2,
+
+  "&:hover": {
+    color: "#413E3E",
+    backgroundColor: "#ffa500",
+  },
 };
 
 function Forum() {
@@ -80,8 +95,11 @@ function Forum() {
               id="outlined-multiline-static"
               label="Content"
               multiline
-              rows={4}
+              rows={5}
             />
+            <Button variant="contained" size="large" sx={submitButtonStyle}>
+              Create Topic
+            </Button>
           </Box>
         </Fade>
       </Modal>
