@@ -40,10 +40,14 @@ function Forum() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [value, setValue] = React.useState("");
+  const [subjectValue, setSubjectValue] = React.useState("");
+  const [contentValue, setContentValue] = React.useState("");
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleSubjectChange = (event) => {
+    setSubjectValue(event.target.value);
+  };
+  const handleContentChange = (event) => {
+    setContentValue(event.target.value);
   };
 
   return (
@@ -56,7 +60,7 @@ function Forum() {
         <Link id="discoverSpcs_Btn">Discover Spaces</Link>
       </nav>
       <article className="forum_article">
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
           delectus beatae excepturi reiciendis atque. Aliquam facilis minus
           earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
@@ -64,7 +68,7 @@ function Forum() {
           consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
           temporibus ex vitae dolore inventore quaerat. Laudantium facilis
           distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-        </p>
+        </p> */}
       </article>
       <section className="forum_out_section">Lorem</section>
       <Modal
@@ -88,14 +92,16 @@ function Forum() {
               label="Subject"
               multiline
               maxRows={4}
-              value={value}
-              onChange={handleChange}
+              value={subjectValue}
+              onChange={handleSubjectChange}
             />
             <TextField
               id="outlined-multiline-static"
               label="Content"
               multiline
               rows={5}
+              value={contentValue}
+              onChange={handleContentChange}
             />
             <Button variant="contained" size="large" sx={submitButtonStyle}>
               create

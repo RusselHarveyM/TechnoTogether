@@ -33,7 +33,7 @@
 .grid_body{
     grid-area: content;
     display: grid;
-    grid-template-columns: minmax(0.28fr,auto)  minmax(1fr,auto ) minmax(0.28fr,auto );
+    grid-template-columns: 0.3fr 1fr 0.28fr;
     justify-content: center;
     grid-template-areas: 
     "sidebar1 content sidebar2"
