@@ -1,0 +1,69 @@
+.overview {
+    position: relative;
+    width: 50%;
+  }
+  
+  /* Make the image responsive */
+
+#sol_btn {
+    position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: #D75DEE;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#stud_btn {
+    position: absolute;
+  top: 80%;
+  right: -77.5%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: #FC5D01;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#stud_btn1 {
+    position: absolute;
+  top: 90%;
+  right: -80%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: #D3005F;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.close {
+    color: white;
+    scale: 150%;
+    font-size: 45px;
+    font-weight: 600;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 5%;
+    right: -95%;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+  }
