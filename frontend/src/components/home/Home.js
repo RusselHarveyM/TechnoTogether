@@ -4,7 +4,7 @@ import logo from "../../images/logo.png";
 import Forum from "../forum/forum";
 import Overview from "../overview/Overview";
 import { Routes, Route, Link } from "react-router-dom";
-
+import Findtutor from "../findtutor/findtutor";
 function Home() {
   return (
     <>
@@ -27,7 +27,7 @@ function Home() {
             <Link>Learning Goals</Link>
             <Link>Chat Room</Link>
             <Link>Study Statistics</Link>
-            <Link>Find Tutor</Link>
+            <Link to ="findtutor">Find Tutor</Link>
             <Link to="forum">Forum</Link>
             <Link>Settings</Link>
           </div>
@@ -38,6 +38,7 @@ function Home() {
         <article className="grid_body">
           <Routes>
             <Route path="/forum" element={<Forum />} />
+            <Route path="/findtutor" element={<Findtutor />} />
             <Route path="" element={<Overview />} />
           </Routes>
         </article>
