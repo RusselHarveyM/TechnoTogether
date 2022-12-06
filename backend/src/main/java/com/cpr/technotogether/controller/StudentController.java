@@ -5,8 +5,6 @@ import com.cpr.technotogether.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -18,13 +16,8 @@ public class StudentController {
     }
 
     @GetMapping("/getUser")
-    public StudentEntity findByid(@RequestParam("id")int id){
-        return sserv.findById(id);
-    }
-
-    @GetMapping("/getAllUser")
-    public List<StudentEntity> getAllUser(){
-        return sserv.getAllStudents();
+    public StudentEntity findByUsername(@RequestParam("username")String username){
+        return sserv.findByUsername(username);
     }
 
     @PostMapping("/addUser")
@@ -32,11 +25,14 @@ public class StudentController {
         sserv.createStudent(student);
     }
 
+<<<<<<< HEAD
+=======
     @DeleteMapping("/deleteUser")
-    public void deleteStudent(@RequestParam("id")int id){
-        sserv.deleteById(id);
+    public void deleteStudent(@RequestParam("username")String username){
+        sserv.deleteByUsername(username);
     }
 
+>>>>>>> solospace
     @PutMapping("/updateUser")
     public void updateStudent(@RequestBody()StudentEntity student ){
         sserv.updateUser(student);

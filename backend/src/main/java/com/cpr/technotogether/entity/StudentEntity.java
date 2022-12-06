@@ -1,20 +1,16 @@
 package com.cpr.technotogether.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_user")
 public class StudentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int id;
-
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "user_password")
+    @Column(name = "u_password")
     private String password;
 
     private String firstname;
@@ -28,11 +24,9 @@ public class StudentEntity {
     @Column(name = "u_organization")
     private String organization;
 
-
     public StudentEntity(){}
 
-    public StudentEntity(int id, String username, String password, String firstname, String middlename, String lastname, int points, String organization) {
-        this.id = id;
+    public StudentEntity(String username, String password, String firstname, String middlename, String lastname, int points, String organization) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -40,14 +34,6 @@ public class StudentEntity {
         this.lastname = lastname;
         this.points = points;
         this.organization = organization;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {

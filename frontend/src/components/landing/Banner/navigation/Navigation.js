@@ -1,28 +1,17 @@
 import logo from "../../../../images/logo.png";
 import "./Navigation.css";
 import "../../landing.css";
-import { Link } from "react-router-dom";
 
 function Navigation() {
   return (
     <nav className="banner_nav">
       <img src={logo} height="100px" width="100px" alt="techno_together_logo" />
       <div className="banner_nav_nav">
-        <Link to="" className="nav_links">
-          How to Study Together
-        </Link>
-        <Link to="" className="nav_links">
-          Design a Study Universe
-        </Link>
-        <Link to="/home" className="nav_links">
-          Home
-        </Link>
-        <Link to="" className="nav_links">
-          About
-        </Link>
-        <Link to="/login" className="nav_links">
-          Login
-        </Link>
+        <a href="#">How to Study Together</a>
+        <a href="#">Design a Study Universe</a>
+        <a href="#">Forums</a>
+        <a href="#">About</a>
+        <a href="#">Login</a>
       </div>
     </nav>
   );

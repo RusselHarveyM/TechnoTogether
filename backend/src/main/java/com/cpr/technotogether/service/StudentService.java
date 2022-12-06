@@ -5,7 +5,6 @@ import com.cpr.technotogether.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,15 +16,12 @@ public class StudentService {
         this.srepo = srepo;
     }
 
-    public List<StudentEntity> getAllStudents(){
-        return this.srepo.findAll();
-    }
     public StudentEntity createStudent(StudentEntity student){
         return srepo.save(student);
     }
 
-    public StudentEntity findById(int id){
-        Optional<StudentEntity> result = srepo.findById(id);
+    public StudentEntity findByUsername(String username){
+        Optional<StudentEntity> result = srepo.findById(username);
 
         StudentEntity studentEntity = null;
 
@@ -37,8 +33,8 @@ public class StudentService {
         return studentEntity;
     }
 
-    public void deleteById(int id){
-        StudentEntity student = findById(id);
+    public void deleteByUsername(String username){
+        StudentEntity student = findByUsername(username);
         if(student != null){
             srepo.delete(student);
         }
