@@ -5,7 +5,7 @@
     height: 100vh;
     justify-content: center;
     grid-template-areas: 
-    "header header"
+    "sidebar header"
     "sidebar content"
     "sidebar content"
 }
