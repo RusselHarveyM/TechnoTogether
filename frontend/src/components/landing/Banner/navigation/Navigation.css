@@ -1,11 +1,11 @@
 
-.nav_links{
+a{
     text-decoration: none;
     font-weight: 600;
     color:#413E3E;
 }
 
-.nav_links:hover{
+a:hover{
     color: #ffa500;
 }
 

@@ -2,17 +2,3 @@
     font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     z-index: 2;
 }
-
-.lnding01{
-    height: auto;
-    border-top: 1px solid #ffa500;
-    margin-top: 5em;
-    width: 100%;
-    background-color: #ffa500;
-}
-
-#videoBG {
-    width: 100%;
-    /* border-radius: 0 0 10px 10px; */
-    /* box-shadow: 2px 2px 10px 5px #00000046; */
-}
