@@ -18,6 +18,7 @@ public class ForumTopicController {
         return ftserv.findById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllTopic")
     public List<ForumTopicEntity> findAllTopic(){
         return ftserv.findAll();

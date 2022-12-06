@@ -70,8 +70,8 @@ public class TopicReplyController {
         }
 
         return trrepo.findById(reply_id).map(reply -> {
-            reply.setMessage(replyRequest.getMessage());
-            return trrepo.save(reply);
+            replyRequest.setMessage(replyRequest.getMessage());
+            return trrepo.save(replyRequest);
         }).orElseThrow(() -> new RuntimeException("ReplyId " + reply_id + "not found"));
     }
 }

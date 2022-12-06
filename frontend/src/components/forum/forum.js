@@ -9,6 +9,7 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Topic from "./topic/Topic";
 
 const style = {
   position: "absolute",
@@ -42,6 +43,7 @@ function Forum() {
   const handleClose = () => setOpen(false);
   const [subjectValue, setSubjectValue] = useState("");
   const [contentValue, setContentValue] = useState("");
+  const [topics, setTopics] = useState([]);
 
   const handleSubjectChange = (event) => {
     setSubjectValue(event.target.value);
@@ -49,6 +51,19 @@ function Forum() {
   const handleContentChange = (event) => {
     setContentValue(event.target.value);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      let topicsList = await fetch(
+        "http://localhost:8080/forum_topic/getAllTopic"
+      );
+      topicsList = await topicsList.json();
+      setTopics(topicsList);
+    }
+    fetchData();
+  }, []);
+
+  console.warn("topics", topics);
 
   return (
     <div className="forumContainer">
@@ -60,106 +75,7 @@ function Forum() {
         <Link id="discoverSpcs_Btn">Discover Spaces</Link>
       </nav>
       <article className="forum_article">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-        </p>
+        <Topic topic={topics} />
       </article>
       <section className="forum_out_section"></section>
       <Modal
