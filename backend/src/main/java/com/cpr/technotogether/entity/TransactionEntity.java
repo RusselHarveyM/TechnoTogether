@@ -28,7 +28,8 @@ public class TransactionEntity {
 	@ManyToOne
 	@JoinColumn(name = "student_username")
 	StudentEntity student;
-
+	
+	public TransactionEntity() {}
 	public TransactionEntity(int id, Date transactiondate, int tutoringduration, int payment, String paymentmethod,
 			StudentEntity tutor, StudentEntity student) {
 		super();
