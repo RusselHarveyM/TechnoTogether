@@ -51,7 +51,7 @@ function Forum() {
   };
 
   return (
-    <>
+    <div className="forumContainer">
       <nav className="forum_nav">
         <button id="newTopic_Btn" onClick={handleOpen}>
           <Icon id="addSign">add_circle</Icon>
@@ -200,7 +200,7 @@ function Forum() {
           </Box>
         </Fade>
       </Modal>
-    </>
+    </div>
   );
 }
 

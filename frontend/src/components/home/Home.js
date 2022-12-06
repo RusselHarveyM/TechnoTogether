@@ -8,7 +8,7 @@ import { Routes, Route, Link } from "react-router-dom";
 function Home() {
   return (
     <>
-      <div className="gridForum_container">
+      <div className="gridHome_container">
         <nav className="grid_head_nav">
           <input type="search" name="" id="grid_head_nav" />
         </nav>

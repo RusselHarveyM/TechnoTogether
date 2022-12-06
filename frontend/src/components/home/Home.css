@@ -1,4 +1,4 @@
-.gridForum_container{
+.gridHome_container{
     display: grid;
     grid-template-columns: 0.18fr 1fr;
     grid-auto-rows: 50px 1fr;
@@ -32,12 +32,7 @@
 
 .grid_body{
     grid-area: content;
-    display: grid;
-    grid-template-columns: 0.3fr 1fr 0.28fr;
-    justify-content: center;
-    grid-template-areas: 
-    "sidebar1 content sidebar2"
-    "sidebar1 content sidebar2"
+    
 }
 
 .grid_home_nav_items *, .applyTutor_Btn, .merchant{
