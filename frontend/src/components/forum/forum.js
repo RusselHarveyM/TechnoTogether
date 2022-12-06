@@ -98,7 +98,7 @@ function Forum() {
               rows={5}
             />
             <Button variant="contained" size="large" sx={submitButtonStyle}>
-              Create Topic
+              create
             </Button>
           </Box>
         </Fade>
