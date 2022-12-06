@@ -2,7 +2,7 @@ import "../landing.css";
 import "./Banner.css";
 import Navigation from "./navigation/Navigation";
 import Logo from "./logo/Logo";
-// import { Link, useMatch, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 // only enable if register component
 
 function Banner() {
@@ -14,9 +14,11 @@ function Banner() {
         <Navigation />
         <div className="banner_card">
           <h1>Join now and learn together!</h1>
-          <a href="#" className="rgstr_link">
-            Register
-          </a>
+          <div class="RegBtn">
+                <Link to="/register">
+                    <button class = "reg_btn"><span>Register Now</span></button>
+                </Link>
+            </div>
           {/* <Link to={`${match.url}/register`} className="rgstr_link">
           Register
         </Link>

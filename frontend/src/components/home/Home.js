@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import logo from "../../images/logo.png";
-import Forum from "../forum/Forum";
+import Forum from "../forum/forum";
 import Overview from "../overview/Overview";
 import { Routes, Route, Link } from "react-router-dom";
 

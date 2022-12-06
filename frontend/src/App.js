@@ -3,6 +3,7 @@ import Landing from "./components/landing/Landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login/Login";
 import Home from "./components/home/Home";
+import Register from "./components/register/Register"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route exact path="/" element={<Landing />} />
           <Route path="/home/*" element={<Home basename="/home" />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
