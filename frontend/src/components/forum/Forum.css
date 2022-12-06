@@ -18,6 +18,9 @@
     grid-area: sidebar1;
 }
 .forum_article{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     border-left: 1px solid #413e3e5c;
     border-right: 1px solid #413e3e5c;
     padding: 10px;

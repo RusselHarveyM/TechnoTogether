@@ -1,3 +1,11 @@
 .topicContainer{
-    border: 1px solid #000;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 2px 2px 2px 2px #2a000029;
+    border-radius: 5px;
 }

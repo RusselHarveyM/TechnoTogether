@@ -1,10 +1,12 @@
 import "./Topic.css";
+import Typography from "@mui/material/Typography";
 
-export default function Topic(topic) {
-  console.warn("topic::::::", topic);
+export default function Topic({ prop }) {
+  console.warn("topic::::::", prop);
   return (
     <div className="topicContainer">
-      <h1>{topic[0].subject}</h1>
+      <h3>{prop.subject}</h3>
+      <p>{prop.content}</p>
     </div>
   );
 }

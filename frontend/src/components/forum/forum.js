@@ -75,7 +75,9 @@ function Forum() {
         <Link id="discoverSpcs_Btn">Discover Spaces</Link>
       </nav>
       <article className="forum_article">
-        <Topic topic={topics} />
+        <Topic prop={topics[0]} />
+        <Topic prop={topics[1]} />
+        <Topic prop={topics[2]} />
       </article>
       <section className="forum_out_section"></section>
       <Modal
