@@ -18,11 +18,13 @@ public class ForumTopicController {
         return ftserv.findById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllTopic")
     public List<ForumTopicEntity> findAllTopic(){
         return ftserv.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addTopic")
     public void addTopic(@RequestBody()ForumTopicEntity topic){
         ftserv.addForumTopic(topic);
@@ -35,7 +37,7 @@ public class ForumTopicController {
     }
 
     @PutMapping("/updateTopic/{topic_id}")
-    public ForumTopicEntity updateTopic(@PathVariable int topic_id, @RequestBody() ForumTopicEntity forumTopic ){
+    public ForumTopicEntity updateTopic(@PathVariable(value = "topic_id") int topic_id, @RequestBody() ForumTopicEntity forumTopic ){
         return ftserv.updateTopic(topic_id, forumTopic);
     }
 

@@ -1,0 +1,21 @@
+.topicContainer{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 2px 2px 2px 2px #2a000029;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #fff;
+    background-color: #000;
+}
+
+.topicContainer:hover{
+    transition: 0.5s;
+    color: #000;
+    background-color: #fff;
+}

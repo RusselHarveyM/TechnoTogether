@@ -1,0 +1,25 @@
+.main{
+    background-color: rgb(204, 116, 62);  
+    height: 100vh;
+  
+}
+.CardContainer{
+    padding-left: 10px; 
+    float: right;
+    overflow: scroll;
+    height: 500px;
+    overflow-x: hidden;
+ 
+}
+
+.CardContainerFilter{ 
+    float: left;
+
+}
+
+.WholeContainer {
+    
+    padding: 5px;
+    margin-bottom: 200px;
+
+}

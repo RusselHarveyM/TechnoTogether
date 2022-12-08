@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Forum.css";
 import Icon from "@mui/material/Icon";
 import { Link } from "react-router-dom";
@@ -8,14 +8,12 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import Topic from "./topic/Topic";
 
 const style = {
   position: "absolute",
-  display: "flex",
-  flexDirection: "column",
+
   borderRadius: 5,
-  gap: 5,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
@@ -25,29 +23,43 @@ const style = {
   p: 4,
 };
 
-const submitButtonStyle = {
-  bgcolor: "#413E3E",
-  color: "#ffa500",
-  borderRadius: 2,
-
-  "&:hover": {
-    color: "#413E3E",
-    backgroundColor: "#ffa500",
-  },
-};
-
 function Forum() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [subjectValue, setSubjectValue] = React.useState("");
-  const [contentValue, setContentValue] = React.useState("");
+  const [subject, setSubject] = useState("");
+  const [content, setContent] = useState("");
+  const [topics, setTopics] = useState([]);
 
   const handleSubjectChange = (event) => {
-    setSubjectValue(event.target.value);
+    setSubject(event.target.value);
   };
   const handleContentChange = (event) => {
-    setContentValue(event.target.value);
+    setContent(event.target.value);
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      let topicsList = await fetch(
+        "http://localhost:8080/forum_topic/getAllTopic"
+      );
+      topicsList = await topicsList.json();
+      setTopics(topicsList);
+    }
+    fetchData();
+  }, []);
+
+  const submitHandler = (e) => {
+    console.warn("submitd :::::: ");
+
+    e.preventDefault();
+    fetch("http://localhost:8080/forum_topic/addTopic", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subject, content }),
+    }).then(() => {
+      console.log("new topic added");
+    });
   };
 
   return (
@@ -60,106 +72,9 @@ function Forum() {
         <Link id="discoverSpcs_Btn">Discover Spaces</Link>
       </nav>
       <article className="forum_article">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-          delectus beatae excepturi reiciendis atque. Aliquam facilis minus
-          earum sed! Laboriosam voluptates dolor eos possimus facere repudiandae
-          mollitia doloribus molestias! Blanditiis! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Officiis dolorum nihil rerum, ipsam qui
-          temporibus ex vitae dolore inventore quaerat. Laudantium facilis
-          distinctio enim. Doloremque minus dignissimos qui officia eveniet?
-        </p>
+        {topics.map((topic) => (
+          <Topic prop={topic} />
+        ))}
       </article>
       <section className="forum_out_section"></section>
       <Modal
@@ -175,28 +90,31 @@ function Forum() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Add New Topic
-            </Typography>
-            <TextField
-              id="outlined-multiline-flexible"
-              label="Subject"
-              multiline
-              maxRows={4}
-              value={subjectValue}
-              onChange={handleSubjectChange}
-            />
-            <TextField
-              id="outlined-multiline-static"
-              label="Content"
-              multiline
-              rows={5}
-              value={contentValue}
-              onChange={handleContentChange}
-            />
-            <Button variant="contained" size="large" sx={submitButtonStyle}>
-              create
-            </Button>
+            <form onSubmit={submitHandler} id="forumForm">
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Add New Topic
+              </Typography>
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Subject"
+                name="Subject"
+                required
+                multiline
+                maxRows={4}
+                value={subject}
+                onChange={handleSubjectChange}
+              />
+              <TextField
+                id="outlined-multiline-static"
+                label="Content"
+                name="Content"
+                multiline
+                rows={5}
+                value={content}
+                onChange={handleContentChange}
+              />
+              <button id="addTopicBtn">create</button>
+            </form>
           </Box>
         </Fade>
       </Modal>
