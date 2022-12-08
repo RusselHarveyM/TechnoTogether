@@ -59,6 +59,7 @@ function Forum() {
       body: JSON.stringify({ subject, content }),
     }).then(() => {
       console.log("new topic added");
+      window.location.reload(false);
     });
   };
 
