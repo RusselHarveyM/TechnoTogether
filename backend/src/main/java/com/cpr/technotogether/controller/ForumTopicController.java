@@ -24,6 +24,7 @@ public class ForumTopicController {
         return ftserv.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/addTopic")
     public void addTopic(@RequestBody()ForumTopicEntity topic){
         ftserv.addForumTopic(topic);
