@@ -2,10 +2,13 @@ package com.cpr.technotogether.controller;
 
 import com.cpr.technotogether.entity.StudentEntity;
 import com.cpr.technotogether.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/student")
@@ -17,28 +20,35 @@ public class StudentController {
         this.sserv = sserv;
     }
 
-    @GetMapping("/getUser")
-    public StudentEntity findByid(@RequestParam("id")int id){
-        return sserv.findById(id);
+    @PostMapping("/postStudent")
+    public void postStudent(@RequestBody()StudentEntity student){
+        sserv.postStudent(student);
     }
-
-    @GetMapping("/getAllUser")
-    public List<StudentEntity> getAllUser(){
-        return sserv.getAllStudents();
+    
+    @GetMapping("/getByUsername")
+    public StudentEntity findByUsername(@RequestParam("username")String username){
+        return sserv.findByUsername(username);
     }
-
-    @PostMapping("/addUser")
-    public void addStudent(@RequestBody()StudentEntity student){
-        sserv.createStudent(student);
-    }
-
-    @DeleteMapping("/deleteUser")
-    public void deleteStudent(@RequestParam("id")int id){
-        sserv.deleteById(id);
-    }
-
-    @PutMapping("/updateUser")
+    
+    @GetMapping("/getAllStudents")
+	public List<StudentEntity> getAllStudents(){
+		return sserv.getAllStudents();
+	}
+    
+    /*@PutMapping("/updateUser")
     public void updateStudent(@RequestBody()StudentEntity student ){
         sserv.updateUser(student);
+    }*/
+    
+    @PutMapping("/putStudent")
+	public StudentEntity putStudent(@RequestParam String username, @RequestBody StudentEntity newStudentDetails)throws Exception {
+		return sserv.putStudent(username, newStudentDetails);
+	}
+    
+    @Transactional
+    @DeleteMapping("/deleteStudent")
+    public String deleteStudent(@RequestParam("username")String username){
+        return sserv.deleteByUsername(username);
     }
+
 }
