@@ -1,10 +1,13 @@
 import "./Topic.css";
+import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
-export default function Topic(topic) {
-  console.warn("topic::::::", topic);
-  return (
-    <div className="topicContainer">
-      <h1>{topic[0].subject}</h1>
-    </div>
-  );
+export default function Topic({ prop }) {
+  if (typeof prop !== "undefined")
+    return (
+      <Link className="topicContainer">
+        <h3>{prop.subject}</h3>
+        <p>{prop.content}</p>
+      </Link>
+    );
 }

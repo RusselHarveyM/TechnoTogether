@@ -18,6 +18,9 @@
     grid-area: sidebar1;
 }
 .forum_article{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     border-left: 1px solid #413e3e5c;
     border-right: 1px solid #413e3e5c;
     padding: 10px;
@@ -67,4 +70,30 @@
 
 .forum_modal_box{
     background-color: #413E3E;
+}
+
+#forumForm{
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    background-color: #fff;
+    border: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#addTopicBtn{
+background-color: #413E3E;
+color: #ffa500;
+border-radius: 5px;
+padding: 0.7em;
+font-weight: 600;
+text-transform: uppercase;
+border: none;
+}
+
+#addTopicBtn:hover{
+    color: #413E3E;
+    background-color: #ffa500;
 }
