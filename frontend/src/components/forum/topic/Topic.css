@@ -1,5 +1,6 @@
 .topicContainer{
     display: flex;
+    text-decoration: none;
     align-items: flex-start;
     flex-direction: column;
     padding-top: 5px;
