@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -29,6 +30,19 @@ public class StudentService {
 		else
 			return null;
     }
+
+	public StudentEntity findById(int id){
+		Optional<StudentEntity> result = srepo.findById(id);
+
+		StudentEntity studentEntity = null;
+
+		if(result.isPresent()){
+			studentEntity = result.get();
+		}else{
+			throw new RuntimeException("Not found");
+		}
+		return studentEntity;
+	}
     
     //Read all students records from tbl_student
     public List<StudentEntity> getAllStudents(){
