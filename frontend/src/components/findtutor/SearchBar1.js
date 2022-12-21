@@ -4,7 +4,7 @@ import "./SearchBar1.css";
 
 function SearchBar1() {
   return (
-    <div className="main">
+    <div className="searchContainer_findTutor">
       <h1>Browse a Tutor</h1>
       <div className="search">
         <TextField
@@ -15,7 +15,6 @@ function SearchBar1() {
           color="primary"
         />
       </div>
-      
     </div>
   );
 }

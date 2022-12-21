@@ -6,10 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_student")
+@Table(name = "tbl_user")
 public class StudentEntity {
 	 	@Id
-	    @Column(name = "username")
+		@Column(name = "user_id")
+		private String id;
+
 	    private String username;
 	 
 	 	private String email;

@@ -1,7 +1,6 @@
 .main{
     background-color: rgb(204, 116, 62);  
-    height: 100vh;
-  
+    height: 100%;
 }
 .CardContainer{
     padding-left: 10px; 
@@ -14,11 +13,12 @@
 
 .CardContainerFilter{ 
     float: left;
-
 }
 
 .WholeContainer {
-    
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     padding: 5px;
     margin-bottom: 200px;
 
