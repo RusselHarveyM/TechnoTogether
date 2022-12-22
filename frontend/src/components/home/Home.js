@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import logo from "../../images/logo.png";
-import Forum from "../forum/Forum";
+import Forum from "../forum/forum";
 import Overview from "../overview/Overview";
 import { Routes, Route, Link } from "react-router-dom";
 import Findtutor from "../findtutor/findtutor";
@@ -23,7 +23,7 @@ function Home() {
           <div className="grid_home_nav_items">
             <Link to="">Overview</Link>
             <Link>Study Area</Link>
-            <Link>Solo Space</Link>
+            <Link to="/solospace">Solo Space</Link>
             <Link>Learning Goals</Link>
             <Link>Chat Room</Link>
             <Link>Study Statistics</Link>
