@@ -2,9 +2,9 @@
 .solospace_container {
   width: 100%;
   height: 100%;
-  background: url("../../images/anime\ 1.jpg");
   background-size: cover;
   padding: 20px 40px;
+  overflow-y: auto;
 }
 
 .main_card_container {
@@ -120,6 +120,7 @@
   background: #363535 !important;
   color: white !important;
   font-size: 12px;
+  height: calc(100vh - 200px);
 }
 
 .goal_card_content {
@@ -157,6 +158,31 @@
   font-size: 15px;
   margin-top: 10px;
   padding: 5px 10px;
+}
+
+.goal_items_container {
+  overflow: auto;
+  max-height: calc(100vh - 442px);
+}
+
+.goal_items_container::-webkit-scrollbar {
+  height: 1px;
+  width: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.goal_items_container::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.goal_items_container::-webkit-scrollbar-track-piece:end {
+  margin-right: 10px !important;
+}
+
+.goal_items_container::-webkit-scrollbar-track-piece:start {
+  margin-left: 10px !important;
 }
 
 .photo_library_card_container {
@@ -209,6 +235,7 @@
   border-radius: 10px;
   margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .photo_library_photo .active {
@@ -297,6 +324,29 @@
 }
 
 /* MUI styles */
+
+.MuiTextField-root.edit_goal_input {
+  margin-right: 15px !important;
+  height: 20px !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+.MuiTextField-root.edit_goal_input .MuiOutlinedInput-root {
+  font-size: 0.75rem !important;
+}
+
+.MuiTextField-root.edit_goal_input .MuiOutlinedInput-input {
+  padding: 5px 10px !important;
+  background: #181717 !important;
+  border: 0px !important;
+}
+
+.MuiTextField-root.edit_goal_input .MuiOutlinedInput-notchedOutline {
+  border: 0px;
+  border-radius: 0px !important;
+  border-bottom: 1px solid white !important;
+}
 
 .MuiCard-root {
   border-radius: 10px !important;

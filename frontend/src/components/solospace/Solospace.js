@@ -12,6 +12,9 @@ import Timer from "./Timer";
 import PhotoLibrary from "./PhotoLibrary";
 import Music from "./Music";
 import Quote from "./Quote";
+import { getAllGoals, deleteGoal, editGoal, insertGoal } from "./Api";
+import Anime1 from "../../images/photo_library/anime1.jpg";
+import Anime1Bg from "../../images/bg/anime1-bg.jpg";
 
 const TimeStatus = {
   STOP: "stop",
@@ -42,6 +45,21 @@ function Solospace() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [breakDialogOpen, setBreakDialogOpen] = useState(false);
 
+  //Photo Library states
+  const [selectedPhoto, setSelectedPhoto] = useState({
+    id: 1,
+    thumbnail: Anime1,
+    bg: Anime1Bg,
+  });
+
+  useEffect(() => {
+    async function getData() {
+      setGoals(await getAllGoals());
+    }
+    getData();
+  }, []);
+
+  console.log(`"url('${selectedPhoto.bg}')"`);
   useEffect(() => {
     let intervalId = "";
     if (timeStatus === TimeStatus.PLAY) {
@@ -117,24 +135,20 @@ function Solospace() {
       .padStart(2, 0)}:${seconds.toString().padStart(2, 0)}`;
   };
 
-  const addGoal = (goal) => {
-    setGoals([...goals, { id: goals.length + 1, label: goal, status: "open" }]);
+  const addGoal = async (goal) => {
+    await insertGoal({ learninggoals: goal });
+    setGoals(await getAllGoals());
     setGoalInput("");
   };
 
-  const completeGoal = (goalId) => {
-    setGoals(
-      goals.map((goal) => {
-        if (goal.id === goalId) {
-          goal.status = "completed";
-        }
-        return goal;
-      })
-    );
+  const completeGoal = async (goal) => {
+    await editGoal({ ...goal, completed: !goal.completed });
+    setGoals(await getAllGoals());
   };
 
-  const deleteGoal = (goalId) => {
-    setGoals(goals.filter((goal) => goal.id !== goalId));
+  const deleteGoalFunc = async (goalId) => {
+    await deleteGoal(goalId);
+    setGoals(await getAllGoals());
   };
 
   return (
@@ -167,7 +181,11 @@ function Solospace() {
           </div>
         </nav>
         <article className="grid_body">
-          <div className="solospace_container">
+          <div
+            className="solospace_container"
+            // style={{ background: `"url('${selectedPhoto.bg}')"` }}
+            style={{ backgroundImage: `url('${selectedPhoto.bg}')` }}
+          >
             <div className="main_card_container">
               <div className="card_container">
                 <Card
@@ -198,7 +216,7 @@ function Solospace() {
                       Learning Goals
                     </div>
                     <span className="card_content_time">{`${
-                      goals.filter((goal) => goal.status === "completed").length
+                      goals.filter((goal) => goal.completed).length
                     } / ${goals.length}`}</span>
                   </CardContent>
                 </Card>
@@ -276,14 +294,19 @@ function Solospace() {
                     addGoal={addGoal}
                     goals={goals}
                     completeGoal={completeGoal}
-                    deleteGoal={deleteGoal}
+                    deleteGoal={deleteGoalFunc}
+                    refreshGoals={async () => setGoals(await getAllGoals())}
                   />
                 )}
               </div>
               <div>
                 {openMinorCards !== "" &&
                   openMinorCards === "photo_library" && (
-                    <PhotoLibrary closeCard={() => setOpenMinorCards("")} />
+                    <PhotoLibrary
+                      selectedPhoto={selectedPhoto}
+                      setSelectedPhoto={setSelectedPhoto}
+                      closeCard={() => setOpenMinorCards("")}
+                    />
                   )}
                 {openMinorCards !== "" &&
                   openMinorCards === "library_music" && (

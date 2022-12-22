@@ -9,8 +9,29 @@ import Anime6 from "../../images/photo_library/anime6.jpg";
 import Anime7 from "../../images/photo_library/anime7.jpg";
 import Anime8 from "../../images/photo_library/anime8.jpg";
 import Anime9 from "../../images/photo_library/anime9.png";
+import Anime1Bg from "../../images/bg/anime1-bg.jpg";
+import Anime2Bg from "../../images/bg/anime2-bg.jpg";
+import Anime3Bg from "../../images/bg/anime3-bg.jpg";
+import Anime4Bg from "../../images/bg/anime4-bg.jpg";
+import Anime5Bg from "../../images/bg/anime5-bg.jpg";
+import Anime6Bg from "../../images/bg/anime6-bg.jpg";
+import Anime7Bg from "../../images/bg/anime7-bg.jpg";
+import Anime8Bg from "../../images/bg/anime8-bg.jpg";
+import Anime9Bg from "../../images/bg/anime9-bg.png";
 
-const PhotoLibrary = ({ closeCard }) => {
+const photos = [
+  { id: 1, thumbnail: Anime1, bg: Anime1Bg },
+  { id: 2, thumbnail: Anime2, bg: Anime2Bg },
+  { id: 3, thumbnail: Anime3, bg: Anime3Bg },
+  { id: 4, thumbnail: Anime4, bg: Anime4Bg },
+  { id: 5, thumbnail: Anime5, bg: Anime5Bg },
+  { id: 6, thumbnail: Anime6, bg: Anime6Bg },
+  { id: 7, thumbnail: Anime7, bg: Anime7Bg },
+  { id: 8, thumbnail: Anime8, bg: Anime8Bg },
+  { id: 9, thumbnail: Anime9, bg: Anime9Bg },
+];
+
+const PhotoLibrary = ({ selectedPhoto, setSelectedPhoto, closeCard }) => {
   return (
     <Card className="photo_library_card_container">
       <CardContent
@@ -59,24 +80,17 @@ const PhotoLibrary = ({ closeCard }) => {
           <div className="photo_library_category">City</div>
         </div>
         <div className="photo_library_photos_container">
-          {[
-            Anime1,
-            Anime2,
-            Anime3,
-            Anime4,
-            Anime5,
-            Anime6,
-            Anime7,
-            Anime8,
-            Anime9,
-          ].map((photo, index) => (
-            <div className="photo_library_photo">
+          {photos.map((photo, index) => (
+            <div
+              className="photo_library_photo"
+              onClick={() => setSelectedPhoto(photo)}
+            >
               <img
-                src={photo}
+                src={photo.thumbnail}
                 alt={`Anime${index}`}
                 className="photo_library_photo"
               />
-              {index === 0 && (
+              {selectedPhoto.id === photo.id && (
                 <div className="active">
                   <Icon>check</Icon>
                 </div>

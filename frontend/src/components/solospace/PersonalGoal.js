@@ -8,7 +8,8 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { editGoal } from "./Api";
 
 const PersonalGoal = ({
   setOpenPersonalGoal,
@@ -18,7 +19,11 @@ const PersonalGoal = ({
   goals,
   completeGoal,
   deleteGoal,
+  refreshGoals,
 }) => {
+  const [editGoalInput, setEditGoalInput] = useState("");
+  const [editRow, setEditRow] = useState(-1);
+
   return (
     <Card className="goal_card_container">
       <CardContent
@@ -92,7 +97,7 @@ const PersonalGoal = ({
                   }}
                 >
                   <strong style={{ fontSize: "45px" }}>
-                    {goals.filter((goal) => goal.status !== "completed").length}
+                    {goals.filter((goal) => !goal.completed).length}
                   </strong>
                   <span>Open</span>
                 </div>
@@ -105,39 +110,96 @@ const PersonalGoal = ({
                   }}
                 >
                   <strong style={{ fontSize: "45px", color: "#63A34D" }}>
-                    {goals.filter((goal) => goal.status === "completed").length}
+                    {goals.filter((goal) => goal.completed).length}
                   </strong>
                   <span>Completed</span>
                 </div>
               </div>
             </CardContent>
           </Card>
-          {goals.map((goal) => (
-            <Card className="goal_item_container" key={goal.id}>
-              <FormControlLabel
-                value={goal.id}
-                control={<Radio onClick={() => completeGoal(goal.id)} />}
-                label={goal.label}
-              />
-              <div style={{ display: "flex" }}>
-                <Icon
-                  sx={{
-                    fontSize: "15px",
-                    marginRight: "5px",
-                    cursor: "pointer",
-                  }}
-                >
-                  edit
-                </Icon>
-                <Icon
-                  sx={{ fontSize: "15px", cursor: "pointer" }}
-                  onClick={() => deleteGoal(goal.id)}
-                >
-                  delete
-                </Icon>
-              </div>
-            </Card>
-          ))}
+          <div className="goal_items_container">
+            {goals.map((goal) => (
+              <Card className="goal_item_container" key={goal.goalid}>
+                <FormControlLabel
+                  value={goal.goalid}
+                  control={
+                    <Radio
+                      onClick={() => completeGoal(goal)}
+                      checked={goal.completed}
+                    />
+                  }
+                  label={
+                    editRow === goal.goalid ? (
+                      <TextField
+                        className="edit_goal_input"
+                        variant="outlined"
+                        placeholder="Type a goal..."
+                        size="small"
+                        value={editGoalInput}
+                        onChange={(e) => setEditGoalInput(e.target.value)}
+                        onKeyPress={async (e) => {
+                          if (e.key === "Enter") {
+                            await editGoal({
+                              ...goal,
+                              learninggoals: editGoalInput,
+                            });
+                            setEditRow(-1);
+                            setEditGoalInput("");
+                            await refreshGoals();
+                          }
+                        }}
+                        style={{ width: "195px !important" }}
+                      />
+                    ) : (
+                      <span
+                        style={{
+                          textDecoration: goal.completed
+                            ? "line-through"
+                            : "unset",
+                        }}
+                      >
+                        {goal.learninggoals}
+                      </span>
+                    )
+                  }
+                />
+                <div style={{ display: "flex" }}>
+                  {!goal.completed && (
+                    <Icon
+                      sx={{
+                        fontSize: "15px",
+                        marginRight: "5px",
+                        cursor: "pointer",
+                      }}
+                      onClick={async () => {
+                        if (editRow === -1) {
+                          setEditRow(goal.goalid);
+                          setEditGoalInput(goal.learninggoals);
+                        } else {
+                          await editGoal({
+                            ...goal,
+                            learninggoals: editGoalInput,
+                          });
+                          setEditRow(-1);
+                          setEditGoalInput("");
+                          await refreshGoals();
+                        }
+                      }}
+                    >
+                      edit
+                    </Icon>
+                  )}
+
+                  <Icon
+                    sx={{ fontSize: "15px", cursor: "pointer" }}
+                    onClick={() => deleteGoal(goal.goalid)}
+                  >
+                    delete
+                  </Icon>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </CardContent>
     </Card>
