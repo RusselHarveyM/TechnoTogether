@@ -5,6 +5,7 @@ import Login from "./components/login/Login";
 import Home from "./components/home/Home";
 import Register from "./components/register/Register";
 import Overview from "./components/overview/Overview";
+import Solospace from "./components/solospace/Solospace";
 import { useState } from "react";
 import Findtutor from "./components/findtutor/findtutor";
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/findtutor" element={<Findtutor />} />
           <Route path="/overview" element={<Overview />} />
+          <Route path="/solospace" element={<Solospace />} />
         </Routes>
       </div>
     </Router>
