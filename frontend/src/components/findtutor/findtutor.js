@@ -17,45 +17,30 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 function Findtutor() {
   return (
+  <>
     <div className="main">
-      <SearchBar1 />
-      <div className="WholeContainer">
-        <div className="CardContainerFilter">
-          <Stack
-            direction={{ xs: "row", sm: "column" }}
-            spacing={{ xs: 3, sm: 2, md: 1 }}
-            alignItems="left"
-          >
-            <Item>
-              <RangeSliderPrice />
-            </Item>
-            <Item>
-              <SelectStudentLevel />
-            </Item>
-            <Item>
-              <RadioButtonsSchedule />
-            </Item>
-          </Stack>
-        </div>
-        <div className="CardContainer">
-          <Stack
-            direction={{ xs: "row", sm: "column" }}
-            spacing={{ xs: 3, sm: 2, md: 1 }}
-            alignItems="center"
-          >
-            <Item>
-              <CardRecipe />
-            </Item>
-            <Item>
-              <CardRecipe />
-            </Item>
-            <Item>
-              <CardRecipe />
-            </Item>
-          </Stack>
-        </div>
-      </div>
+        <SearchBar1/>
+    <div className="WholeContainer">
+    <div className="CardContainerFilter">
+    <Stack
+  direction={{ xs: 'row', sm: 'column' }}
+  spacing={{ xs: 3, sm: 2, md: 1 }}
+  alignItems="left"
+>
+  <Item><RangeSliderPrice/></Item>
+  <Item><SelectStudentLevel/></Item>
+  <Item><RadioButtonsSchedule/></Item>
+  
+</Stack>
     </div>
+<div className="CardContainer" >
+<CardRecipe/>
+</div>
+
+    </div>
+   
+    </div>
+    </>
   );
 }
 
