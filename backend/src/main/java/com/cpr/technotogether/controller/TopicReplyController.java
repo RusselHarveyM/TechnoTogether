@@ -28,6 +28,7 @@ public class TopicReplyController {
     @Autowired
     private StudentService sserv;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/topics/topic/{topic_id}/replies")
     public Page<TopicReplyEntity> getAllRepliesByTopicId(@PathVariable (value = "topic_id") int topic_id,
                                                          Pageable pageable) {

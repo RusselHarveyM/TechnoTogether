@@ -1,11 +1,19 @@
-import React from "react";
 import "./Home.css";
 import logo from "../../images/logo.png";
 import Forum from "../forum/Forum";
 import Overview from "../overview/Overview";
 import { Routes, Route, Link } from "react-router-dom";
 import Findtutor from "../findtutor/findtutor";
+import TopicElement from "../forum/topic/topicElement/TopicElement";
+import React, { useState, useEffect } from "react";
+
 function Home() {
+  const [TopicElementData, setTopicElementData] = useState();
+
+  const update = (nextState) => {
+    setTopicElementData(nextState);
+  };
+
   return (
     <>
       <div className="gridHome_container">
@@ -38,6 +46,7 @@ function Home() {
         <article className="grid_body">
           <Routes>
             <Route path="/forum" element={<Forum />} />
+            <Route path="/forum/topic/:id" element={<TopicElement />} />
             <Route path="/findtutor" element={<Findtutor />} />
             <Route path="" element={<Overview />} />
           </Routes>

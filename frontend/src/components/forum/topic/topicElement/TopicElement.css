@@ -1,0 +1,40 @@
+.topicElementContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    gap: 2.5em;
+    background: url("/src/images/login_bg.png") no-repeat center;
+    background-size: 100% 100%;
+}
+.topicD{
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 2em;
+    box-shadow: 2px 3px 10px 0 #00000058;
+    text-align: left;
+    padding: 1.5em;
+    height: 40%;
+    width: 97%;
+    border-radius: 0.7em;
+}
+.topicSubject{
+    margin: 0;
+    color: #000;
+}
+
+.topicContent{
+    border: 1px solid #0000002f;
+    height: 80%;
+    padding: 1.2em;
+    border-radius: 0.7em;
+}
+
+.topicSubject sup{
+    background-color: #ffa500;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 5px;
+}

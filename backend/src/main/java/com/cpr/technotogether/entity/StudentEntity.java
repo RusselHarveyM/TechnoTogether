@@ -1,72 +1,125 @@
 package com.cpr.technotogether.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_user")
 public class StudentEntity {
 	 	@Id
 		@Column(name = "user_id")
-		private String id;
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private int id;
 
-	    private String username;
-	 
-	 	private String email;
-	    
-	    @Column(name = "password")
+		private String username;
+
+		private String firstname;
+
+		private String middlename;
+
+		private String lastname;
+
+	    private String email;
+
+	    @Column(name = "u_password")
 	    private String password;
-	    
+
 	    private int points;
-	  
+	@Column(name = "u_organization")
+	    private String organization;
 
-		public StudentEntity(String username, String email, String password, int points) {
-			super();
-			this.username = username;
-			this.email = email;
-			this.password = password;
-			this.points = points;
-		}
-		
-	    public StudentEntity(){}
+	public StudentEntity() {
+	}
 
-		@Override
-		public String toString() {
-			return "StudentEntity [username=" + username + ", email=" + email + ", password=" + password + ", points="
-					+ points + "]";
-		}
+	public StudentEntity(int id, String username, String firstname, String middlename, String lastname, String email, String password, int points, String organization) {
+		this.id = id;
+		this.username = username;
+		this.firstname = firstname;
+		this.middlename = middlename;
+		this.lastname = lastname;
+		this.email = email;
+		this.password = password;
+		this.points = points;
+		this.organization = organization;
+	}
 
-		public String getUsername() {
-			return username;
-		}
+	@Override
+	public String toString() {
+		return "StudentEntity{" +
+				"firstname='" + firstname + '\'' +
+				", middlename='" + middlename + '\'' +
+				", lastname='" + lastname + '\'' +
+				'}';
+	}
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
+	public int getId() {
+		return id;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public String getUsername() {
+		return username;
+	}
 
-		public String getPassword() {
-			return password;
-		}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+	public String getFirstname() {
+		return firstname;
+	}
 
-		public int getPoints() {
-			return points;
-		}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
-		public void setPoints(int points) {
-			this.points = points;
-		}
+	public String getMiddlename() {
+		return middlename;
+	}
+
+	public void setMiddlename(String middlename) {
+		this.middlename = middlename;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
 }

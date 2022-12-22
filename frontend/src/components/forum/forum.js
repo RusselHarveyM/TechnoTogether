@@ -63,6 +63,8 @@ function Forum() {
     });
   };
 
+  const deleteHandler = (e) => {};
+
   return (
     <div className="forumContainer">
       <nav className="forum_nav">
@@ -74,7 +76,7 @@ function Forum() {
       </nav>
       <article className="forum_article">
         {topics.map((topic) => (
-          <Topic prop={topic} />
+          <Topic topics={topic} />
         ))}
       </article>
       <section className="forum_out_section"></section>

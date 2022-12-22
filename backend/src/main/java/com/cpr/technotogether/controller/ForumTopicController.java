@@ -13,6 +13,7 @@ public class ForumTopicController {
     @Autowired
     private ForumTopicService ftserv;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getTopic")
     public ForumTopicEntity findTopic(@RequestParam("id")int id){
         return ftserv.findById(id);
