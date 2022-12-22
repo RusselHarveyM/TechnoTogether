@@ -11,7 +11,7 @@ public class StudentEntity {
 	 	@Id
 		@Column(name = "user_id")
 		private String id;
-
+	 	@Column(unique=true)
 	    private String username;
 	 
 	 	private String email;
