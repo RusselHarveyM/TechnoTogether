@@ -33,6 +33,7 @@ public class GoalService {
 				goal = grepo.findById(goalid).get();
 				
 				goal.setLearninggoals(newGoalDetails.getLearninggoals());
+				goal.setCompleted(newGoalDetails.isCompleted());
 						
 				return grepo.save(goal);
 			} catch (NoSuchElementException nex) {

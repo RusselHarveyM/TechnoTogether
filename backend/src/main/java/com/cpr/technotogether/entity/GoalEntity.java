@@ -14,13 +14,15 @@ public class GoalEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int goalid;
 	private String learninggoals;
+	private boolean completed;
 	
 	public GoalEntity() { }
 
-	public GoalEntity(int goalid, String learninggoals) {
+	public GoalEntity(int goalid, String learninggoals, boolean completed) {
 		super();
 		this.goalid = goalid;
 		this.learninggoals = learninggoals;
+		this.completed = completed;
 	}
 
 	public int getGoalid() {
@@ -33,5 +35,13 @@ public class GoalEntity {
 
 	public void setLearninggoals(String learninggoals) {
 		this.learninggoals = learninggoals;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
 	}
 }
