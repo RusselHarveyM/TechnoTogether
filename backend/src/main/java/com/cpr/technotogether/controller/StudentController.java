@@ -29,7 +29,7 @@ public class StudentController {
     public StudentEntity findByUsername(@RequestParam("username")String username){
         return sserv.findByUsername(username);
     }
-    
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAllStudents")
 	public List<StudentEntity> getAllStudents(){
 		return sserv.getAllStudents();
