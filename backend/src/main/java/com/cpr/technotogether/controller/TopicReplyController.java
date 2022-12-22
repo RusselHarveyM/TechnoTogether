@@ -41,6 +41,7 @@ public class TopicReplyController {
         return trrepo.findByUser_Id(user_id, pageable);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/posts/{topic_id}/{user_id}/comments")
     public TopicReplyEntity createReply(@PathVariable (value = "topic_id") int topic_id,
                                         @PathVariable (value = "user_id") int user_id,
